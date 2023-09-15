@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>neo.ehsanodyssey.spring.boot</groupId>
+    <artifactId>neo-microservice</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>neo-microservice</name>
+    <description>NEO Spring Boot Microservice</description>
+    <packaging>pom</packaging>
+
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>2.1.6.RELEASE</version>-->
+        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--</parent>-->
+
+    <!--<properties>-->
+        <!--<java.version>1.8</java.version>-->
+        <!--<spring-session.version>1.2.2.RELEASE</spring-session.version>-->
+        <!--<spring-cloud-dependencies.version>Brixton.SR7</spring-cloud-dependencies.version>-->
+        <!--<spring-cloud-starter-config.version>1.2.2.RELEASE</spring-cloud-starter-config.version>-->
+        <!--<spring-cloud-config-server.version>1.2.2.RELEASE</spring-cloud-config-server.version>-->
+        <!--<spring-cloud-starter-eureka.version>2.0.2.RELEASE</spring-cloud-starter-eureka.version>-->
+        <!--<spring-cloud-starter-feign.version>1.4.6.RELEASE</spring-cloud-starter-feign.version>-->
+        <!--<spring-cloud-starter-hystrix.version>1.2.3.RELEASE</spring-cloud-starter-hystrix.version>-->
+        <!--<spring-cloud-stream.version>1.3.0.RELEASE</spring-cloud-stream.version>-->
+        <!--<spring-boot-starter-web.version>1.4.2.RELEASE</spring-boot-starter-web.version>-->
+        <!--<spring-boot-maven-plugin.version>1.4.2.RELEASE</spring-boot-maven-plugin.version>-->
+        <!--<spring-cloud-starter-zuul.version>1.2.3.RELEASE</spring-cloud-starter-zuul.version>-->
+    <!--</properties>-->
+
+    <modules>
+        <module>service-book</module>
+        <module>service-rating</module>
+        <module>config</module>
+        <module>discovery</module>
+        <module>gateway</module>
+        <module>zipkin</module>
+    </modules>
+
+    <!--<dependencies>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-test</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.projectlombok</groupId>-->
+            <!--<artifactId>lombok</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
+
+
+    <!--</dependencies>-->
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <!--<configuration>-->
+                        <!--<mainClass>${start-class}</mainClass>-->
+                        <!--&lt;!&ndash; this is necessary as we're not using the Boot parent &ndash;&gt;-->
+                    <!--</configuration>-->
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <rest-assured.version>3.1.0</rest-assured.version>
+        <spring-boot.version>1.5.19.RELEASE</spring-boot.version>
+        <spring-session.version>1.2.2.RELEASE</spring-session.version>
+        <spring-cloud-dependencies.version>Brixton.SR7</spring-cloud-dependencies.version>
+        <spring-cloud-starter-config.version>1.2.2.RELEASE</spring-cloud-starter-config.version>
+        <spring-cloud-config-server.version>1.2.2.RELEASE</spring-cloud-config-server.version>
+        <spring-cloud-starter-eureka.version>2.0.2.RELEASE</spring-cloud-starter-eureka.version>
+        <spring-cloud-starter-feign.version>1.4.6.RELEASE</spring-cloud-starter-feign.version>
+        <spring-cloud-starter-hystrix.version>1.2.3.RELEASE</spring-cloud-starter-hystrix.version>
+        <spring-cloud-stream.version>1.3.0.RELEASE</spring-cloud-stream.version>
+        <spring-boot-starter-web.version>1.4.2.RELEASE</spring-boot-starter-web.version>
+        <spring-boot-maven-plugin.version>1.4.2.RELEASE</spring-boot-maven-plugin.version>
+        <spring-cloud-starter-zuul.version>1.2.3.RELEASE</spring-cloud-starter-zuul.version>
+    </properties>
+</project>
